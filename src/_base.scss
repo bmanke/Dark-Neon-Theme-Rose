@@ -1,0 +1,628 @@
+/* Variable Hell */
+:root,
+.theme-dark,
+.theme-light {
+  --highlight: rgb(var(--rgb-highlight));
+  --rgb-background: 0, 0, 0;
+  --background: rgb(var(--rgb-background));
+  --rgb-text: 197, 200, 198;
+  --text: rgb(var(--rgb-text));
+  --rgb-close-button: 212, 18, 39;
+  --close-button: rgb(var(--rgb-close-button));
+  --rgb-online-color: 57, 255, 20;
+  --online-color: rgb(var(--rgb-online-color));
+  --rgb-afk-color: 255, 255, 51;
+  --afk-color: rgb(var(--rgb-afk-color));
+  --rgb-dnd-color: 255, 0, 0;
+  --dnd-color: rgb(var(--rgb-dnd-color));
+  --rgb-streaming-color: 188, 19, 254;
+  --streaming-color: rgb(var(--rgb-streaming-color));
+
+  --scrollbar-thin-thumb: var(--highlight);
+  --scrollbar-auto-thumb: var(--highlight);
+  --scrollbar-auto-scrollbar-color-thumb: var(--highlight);
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-track: transparent;
+  --scrollbar-auto-scrollbar-color-track: transparent;
+
+  --transition-time: 0.3s;
+
+  --background-image: unset;
+  --background-position: center;
+  --background-size: cover;
+  --background-blur: 5px;
+  --background-brightness: 100%;
+
+  /* --== Modifying some default variables ==-- */
+
+  /* --== BACKGROUND ==-- */
+  --background-primary: var(--background);
+  --background-mobile-primary: var(--background);
+  --background-secondary: var(--background) !important;
+  --background-mobile-secondary: var(--background);
+  --background-secondary-alt: var(--background);
+  --background-tertiary: var(--background);
+  --background-accent: var(--background);
+  --background-floating: var(--background);
+  --background-nested-floating: var(--background);
+  --background-modifier-accent: rgba(var(--rgb-highlight), 20%);
+  --background-modifier-hover: rgba(var(--rgb-highlight), 10%);
+  --background-modifier-active: rgba(var(--rgb-highlight), 30%);
+  --background-modifier-selected: var(--rgb-highlight);
+
+  /* --== MODALS ==-- */
+  --modal-background: var(--background);
+  --modal-footer-background: var(--background);
+  --background-floating: var(--background);
+  --bg-surface-overlay: var(--background);
+
+  /* --== ACTIVITY CARDS ==-- */
+  --activity-card-background: var(--background);
+
+  /* --== HEADER ==-- */
+  --header-primary: rgb(var(--rgb-highlight));
+  --header-secondary: rgb(var(--rgb-highlight));
+
+  /* --== CHAT ==-- */
+  --chat-background: var(--background);
+  --chat-border: var(--highlight);
+  --chat-input-container-background: var(--background);
+
+  /* --== SPOILERS ==-- */
+  --spoiler-hidden-background: var(--highlight);
+  --spoiler-revealed-background: rgba(var(--rgb-highlight), 20%);
+
+  /* --== INPUT ==-- */
+  --input-background: var(--background);
+  --textbox-markdown-syntax: var(--highlight);
+  // --input-placeholder-text: var() TODO: Not sure if I should style this
+
+  /* --== LOGO ==-- */
+  --logo-primary: var(--highlight);
+  --control-brand-foreground: var(--highlight);
+  --control-brand-foreground-new: var(--highlight);
+
+  /* --== MESSAGES ==-- */
+  --background-mentioned: rgba(var(--rgb-highlight), 30%);
+  --background-mentioned-hover: rgba(var(--rgb-highlight), 40%);
+  --background-message-hover: rgba(var(--rgb-highlight), 10%);
+  --background-message-highlight: rgba(var(--rgb-highlight), 30%);
+  --background-message-highlight-hover: rgba(var(--rgb-highlight), 40%);
+  --background-message-automod: rgba(var(--rgb-highlight), 20%);
+  --background-message-automod-hover: rgba(var(--rgb-highlight), 40%);
+
+  /* --== CHANNELS ==-- */
+  --channeltextarea-background: var(--background);
+  // --channels-default:
+  // --channel-icon:
+  // --channel-text-area-placeholder:
+  // TODO: Figure out wtf these do
+
+  /* --== TEXT ==-- */
+  --text-link: var(--highlight);
+  --text-link-low-saturation: rgba(var(--rgb-highlight), 50%);
+  --text-positive: var(--online-color);
+  --text-warning: var(--afk-color);
+  --text-danger: var(--dnd-color);
+  --text-brand: var(--highlight);
+  --text-normal: var(--text);
+  --text-muted: var(--text);
+
+  /* --== BUTTONS ==-- */
+  $buttons: (
+    "danger": "rgb-close-button",
+    "positive": "rgb-online-color",
+    "primary": "rgb-highlight",
+    "secondary": "rgb-highlight",
+    "brand": "rgb-highlight",
+  );
+  @each $name, $color in $buttons {
+    --button-#{$name}-background-disabled: rgba(var(--#{$color}), 20%);
+    --button-#{$name}-background: rgba(var(--#{$color}), 20%);
+    --button-#{$name}-background-hover: rgba(var(--#{$color}), 70%);
+    --button-#{$name}-background-active: rgba(var(--#{$color}), 100%);
+    --button-outline-#{$name}-border: rgba(var(--#{$color}), 50%);
+    --button-outline-#{$name}-background: rgba(var(--#{$color}), 50%);
+    --button-outline-#{$name}-background-hover: rgba(var(--#{$color}), 70%);
+    --button-outline-#{$name}-background-active: rgba(var(--#{$color}), 100%);
+    --button-outline-#{$name}-text: rgba(var(--#{$color}), 50%);
+    --button-outline-#{$name}-text-hover: rgba(var(--#{$color}), 70%);
+    --button-outline-#{$name}-text-active: rgba(var(--#{$color}), 100%);
+    --button-outline-#{$name}-border-hover: rgba(var(--#{$color}), 70%);
+    --button-outline-#{$name}-border-active: rgba(var(--#{$color}), 100%);
+  }
+
+  /* --== SEARCH POPOUT ==-- */
+  --search-popout-option-user-nickname: var(--highlight);
+  --search-popout-option-user-username: rgba(var(--rgb-highlight), 70%);
+  --search-popout-option-filter-text: rgba(var(--rgb-highlight), 70%);
+  --search-popout-date-picker-border: 1px solid var(--highlight);
+
+  /* --== INTERACTIVE ELEMENTS ==-- */
+  --interactive-muted: rgba(var(--rgb-highlight), 20%);
+  --interactive-normal: rgba(var(--rgb-highlight), 50%);
+  --interactive-hover: rgba(var(--rgb-highlight), 100%);
+  --interactive-active: var(--highlight);
+
+  /* --== I DON'T EVEN KNOW, WHY DO YOU DO THIS DISCORD ==-- */
+  --status-danger: var(--dnd-color);
+  --status-warning: var(--afk-color);
+  --status-positive: var(--online-color);
+
+  /* --== USER PROFILES ==-- */
+  --profile-gradient-primary-color: var(--rgb-background);
+  --profile-gradient-secondary-color: var(--rgb-background);
+
+  /* --== "BRAND" COLOR ==-- */
+  --brand-experiment: var(--highlight);
+
+  @for $i from 1 through 9 {
+    --brand-experiment-#{$i}00: var(--highlight);
+    --brand-experiment-#{$i}30: var(--highlight);
+    --brand-experiment-#{$i}60: var(--highlight);
+  }
+
+  --brand-experiment-05a: var(--highlight);
+  $counter: 10;
+  @while $counter < 100 {
+    --brand-experiment-#{$counter}a: var(--highlight);
+    $counter: $counter + 5;
+  }
+
+  --primary-630: var(--background);
+
+  /* Variables for Avatars */
+	/* Icons */
+	--dplus-icon-home-dark: url(https://plusinsta.github.io/discord-plus/assets/discord/home_dark.svg);
+
+	/* Icon sizes*/
+	--dplus-radius-ui: 10px;
+	--dplus-radius-avatar: 20%;
+	--dplus-radius-server: 20%;
+
+	/* Spacing */
+	--dplus-spacing-ui: 10px;
+	--dplus-spacing-app: 10px;
+
+	--dplus-icon-avatar-chat: 64px;
+	--dplus-icon-avatar-list: 32px;
+	--dplus-icon-avatar-profile: 80px;
+
+	--dplus-icon-server-sidebar: 48px;
+	--dplus-icon-server-list: 32px;
+
+}
+
+/* --== Set the background color/image ==-- */
+body {
+  background-color: var(--background);
+  background-image: var(--background-image);
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  backdrop-filter: blur(var(--background-blur))
+    brightness(var(--background-brightness));
+}
+
+/* --== Make everything (which needs to be) transparent ==-- */
+// The main App background
+.appMount_ea7e65, .app_a01fb1, .bg_d4b6c5,
+  // The guild list
+  .guilds_a4d4d9, .scroller_fea3ef,
+  // The channel list
+  .sidebar_a4d4d9, .container_ee69e0,
+  // The mute/deafen/settings panel
+  .panels_a4d4d9, .container_b2ca13,
+  // The chat
+  .chat_a7d72e, .chatContent_a7d72e,
+  // The title bar
+  .title_a7d72e,
+  // The search bar,
+  .searchBar_a46bef,
+  // The user list
+  .container_cbd271, .members_cbd271, .content_a7d72e, .container_d808b0,
+  // The chat box
+  .channelTextArea_d0696b,
+  // The friends page
+  .container_c2739c, .section_cd82a7, .nowPlayingColumn_c2739c,
+  .container_bf550a, .itemCard_f02fcf, .section_cd82a7, .inset_ac5d22,
+  .container_fc4f04, .privateChannels_f0963d, .scroller_c47fa9,
+  // The settings page
+  .layer_d4b6c5 , .standardSidebarView_c25c6d, .sidebarRegionScroller_c25c6d,
+  .contentRegion_c25c6d, .contentRegionScroller_c25c6d,
+  // The Library page
+  .container_ad8f79, .stickyHeader_f1629a, .scroller_c100ff,
+  // The Explore servers page
+  .pageWrapper_a3a4ce,
+  // The Forum page 
+  .container_a6d69a {
+  background: transparent !important;
+}
+
+/* --== Style the online/afk/dnd icons ==-- */
+
+/* --== THIS PART WAS YOINKED FROM _DAVID_! THANKS DAVID! ==-- */
+#app-mount .wrapper_c51b4e rect[fill="#593695"],
+#app-mount .wrapper_c51b4e rect[mask*="streaming"] {
+  fill: var(--streaming-color);
+}
+#app-mount .wrapper_c51b4e rect[fill="#43b581"],
+#app-mount .wrapper_c51b4e rect[mask*="online"] {
+  fill: var(--online-color);
+}
+#app-mount .wrapper_c51b4e rect[fill="#faa61a"],
+#app-mount .wrapper_c51b4e rect[mask*="idle"] {
+  fill: var(--afk-color);
+}
+#app-mount .wrapper_c51b4e rect[fill="#f04747"],
+#app-mount .wrapper_c51b4e rect[mask*="dnd"] {
+  fill: var(--dnd-color);
+}
+
+/* --== Style the unread number-badges ==-- */
+.numberBadge__40d6f {
+  background-color: rgba(var(--rgb-highlight), 70%) !important;
+  color: var(--background);
+}
+
+/* --== Style the unread message bar ==-- */
+.isUnread_c2654d {
+  border: 1px solid var(--highlight);
+}
+
+.content_c2654d {
+  color: var(--highlight);
+}
+
+.wrapper_d8bfb3:hover {
+  .unread_d8bfb3 {
+    background-color: var(--highlight);
+  }
+}
+
+.guildSeparator-33mFX6 {
+  background-color: var(--highlight);
+  border-radius: 2px;
+}
+
+.unreadPillCapStroke_c2654d {
+  color: var(--highlight);
+  fill: var(--highlight);
+}
+
+.unreadPill_c2654d {
+  background-color: var(--highlight);
+  color: var(--background) !important;
+}
+
+.bar_edf32f,
+.newMessagesBar_cf58b5 {
+  background-color: var(--highlight);
+  color: var(--background);
+}
+
+/* --== Style chat  ==-- */
+.channelTextArea_a7d72e {
+  border: 1px solid var(--highlight);
+}
+
+/* --== Style profile ==-- */
+.userProfileInnerThemedNonPremium_c69a7b {
+  background-color: var(--background);
+}
+
+/* --== Style member titles ==-- */
+.membersGroup_cbd271 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--highlight);
+  padding: 0px;
+}
+
+.membersGroup_cbd271::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  margin-right: 3px;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--rgb-highlight), 0) 0%,
+    rgba(var(--rgb-highlight), 1) 100%
+  );
+}
+
+.membersGroup_cbd271::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  margin-left: 3px;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--rgb-highlight), 1) 0%,
+    rgba(var(--rgb-highlight), 0) 100%
+  );
+}
+
+/* --== Style channelgroup titles ==-- */
+.containerDefault_a08117 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerDefault_a08117 div div {
+  color: var(--highlight);
+}
+
+.arrow_d64d50 {
+  display: none;
+}
+
+.container-q97qHp .overflow_a82120 {
+  max-width: 8vw;
+}
+
+.containerDefault_a08117::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  margin-right: -11px;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--rgb-highlight), 0) 0%,
+    rgba(var(--rgb-highlight), 1) 100%
+  );
+}
+
+.containerDefault_a08117::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  margin-left: -3px;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--rgb-highlight), 1) 0%,
+    rgba(var(--rgb-highlight), 0) 100%
+  );
+}
+
+/* --== Hide weird unused stuff ==-- */
+.theme-dark .children_fc4f04:after,
+.form_a7d72e::before,
+.option_b0286e:after {
+  display: none;
+}
+
+/* --== Make sure friends without custom profile-background just get the theme default, by default ==-- */
+.userPanelInnerThemed-2xZFjl {
+  background-color: var(--background);
+}
+
+/* --== Fix invisible reaction count =-- */
+.reactionMe_ec6b19 {
+  border-color: var(--highlight) !important;
+
+  .reactionCount_ec6b19 {
+    color: var(--background) !important;
+  }
+}
+
+/* --== Fix illegible bot tag ==-- */
+.botText_a9e77f,
+.botTagVerified_a9e77f {
+  color: var(--background);
+}
+
+/* --== Set chat background color to fix transparency issues ==-- */
+.scrollableContainer_d0696b {
+  background-color: var(--background);
+}
+
+/* --== Fix super bright replying highlights ==-- */
+.replying_d5deea:hover {
+  background-color: rgba(var(--rgb-highlight), 60%) !important;
+}
+
+/* --== Fix super bright bot-replying highlights ==-- */
+.ephemeral_d5deea {
+  background-color: rgba(var(--rgb-highlight), 30%);
+}
+
+.ephemeral_d5deea:hover {
+  background-color: rgba(var(--rgb-highlight), 40%) !important;
+}
+
+/* --== Highlight selected channel ==-- */
+.modeSelected_d8bfb3 {
+  .icon_d8bfb3 {
+    color: var(--highlight) !important;
+  }
+
+  .wrapper_d8bfb3 {
+    background-color: rgba(var(--rgb-highlight), 20%) !important;
+  }
+}
+
+/* --== Change mentioned color bar ==-- */
+.mentioned_d5deea::before {
+  background-color: var(--highlight);
+}
+
+:root {
+  /* Variables for Avatars */
+  /* Icons */
+  --dplus-icon-home-dark: url(https://plusinsta.github.io/discord-plus/assets/discord/home_dark.svg);
+
+  /* Icon sizes*/
+  --dplus-radius-ui: 10px;
+  --dplus-radius-avatar: 20%;
+  --dplus-radius-server: 20%;
+
+  /* Spacing */
+  --dplus-spacing-ui: 10px;
+  --dplus-spacing-app: 10px;
+
+  --dplus-icon-avatar-chat: 64px;
+  --dplus-icon-avatar-list: 32px;
+  --dplus-icon-avatar-profile: 80px;
+
+  --dplus-icon-server-sidebar: 48px;
+  --dplus-icon-server-list: 32px;
+
+  --dplus-anim-button-appear: 0s;
+
+  /* Activity and Discovery Icon Removal */
+  .footer_d71945 {
+    display: none;
+  }
+
+  .channelAppLauncher_df39bd {
+    display: none;
+  }
+}
+
+.wrapper-1VLyxH foreignObject,
+.callAvatarMask_db83a2 foreignObject,
+.wrapper-1VLyxH + svg foreignObject,
+.avatarContainerMasked_d03bba foreignObject,
+.avatarHint_f89da9 foreignObject,
+.wrapper_c51b4e foreignObject {
+  mask: none;
+}
+
+/* this allows profile popout avatars to be rounded with a custom value */
+.wrapper_c51b4e [mask="url(#svg-mask-avatar-decoration-status-round-120)"] img,
+.wrapper_c51b4e [mask="url(#svg-mask-avatar-decoration-status-round-80)"] img {
+  /* this uncrops the avatar decorations after that line above */
+  border-radius: inherit !important;
+}
+
+/* In chat avatar decorations*/
+.message_d5deea .avatarDecoration_f9f2ca {
+  height: calc(
+    var(--dplus-icon-avatar-chat) + var(--dplus-icon-avatar-chat) / 5
+  );
+  width: calc(
+    var(--dplus-icon-avatar-chat) + var(--dplus-icon-avatar-chat) / 5
+  );
+  left: calc(var(--dplus-icon-avatar-chat) / -10 + var(--dplus-spacing-ui));
+  top: calc(var(--dplus-icon-avatar-chat) / -10 + var(--dplus-spacing-ui));
+  margin: 0;
+}
+
+.avatar_f9f2ca:not(.compact_f9f2ca) {
+  position: absolute;
+  margin-top: 0;
+  top: var(--dplus-spacing-ui) !important;
+  left: var(--dplus-spacing-ui) !important;
+  height: var(--dplus-icon-avatar-chat) !important;
+  width: var(--dplus-icon-avatar-chat) !important;
+}
+
+.guilds_a4d4d9 foreignObject {
+  mask: none;
+}
+
+/* Makes the Folder SVG bigger */
+.wrapper_c5f96a,
+.wrapper_c5f96a svg {
+  height: var(--dplus-icon-server-sidebar);
+  width: var(--dplus-icon-server-sidebar);
+}
+
+/* Rounds the Server List Icons */
+.wrapper_bc7085 ul {
+  height: calc(inherit + var(--dplus-spacing-ui)) !important;
+}
+.guilds_a4d4d9 .listItem_c96c45 :not(span) {
+  border-radius: var(--dplus-radius-server);
+}
+.wrapper_c4cd66 {
+  top: calc(var(--dplus-icon-server-sidebar) / 10) !important;
+  height: calc(var(--dplus-icon-server-sidebar) / 10 * 8) !important;
+}
+.pill-1z4sAY {
+  top: calc(var(--dplus-icon-server-sidebar) / 10);
+}
+.circleIconButton_db6521 {
+  background-color: var(--dplus-bgc-server-button);
+  color: var(--dplus-accent-ui);
+}
+
+/* Makes the avatars in chat square */
+.wrapper_c51b4e img,
+.wrapper-1VLyxH img,
+.voiceAvatar_db83a2,
+.border_db83a2,
+.clickable_f94206:hover .overlay_f94206:after,
+.wrapper_db83a2.ringingIncoming_db83a2:after,
+.wrapper_db83a2.ringingOutgoing_db83a2:after,
+.avatar_f9f2ca,
+.option-2KkUJO.user-23VtPS .displayAvatar-3XS1w6 {
+  border-radius: var(--dplus-radius-avatar) !important;
+}
+
+/* Stops messages from colliding with bigger Avatar */
+.cozy_f9f2ca.wrapper_f9f2ca {
+  padding-left: calc(
+    var(--dplus-icon-avatar-chat) + var(--dplus-spacing-ui) * 2
+  );
+}
+.groupStart_d5deea,
+.divider_d5deea
+  + :is(.messageListItem_d5deea, .backgroundFlash_d5deea)
+  .message_d5deea {
+  border-radius: var(--dplus-radius-ui) var(--dplus-radius-ui) 0 0;
+}
+
+/* Message Separation so Avatars don't overlap */
+:is(
+    .messageListItem_d5deea,
+    .quotedChatMessage_d5deea,
+    .backgroundFlash_d5deea
+  ):has(
+    + .messageListItem_d5deea .groupStart_d5deea,
+    + .backgroundFlash_d5deea .groupStart_d5deea,
+    + .scrollerSpacer_e2e187,
+    + .divider_d5deea
+  )
+  .groupStart_d5deea:has(.avatar_f9f2ca) {
+  min-height: calc(var(--dplus-spacing-ui) * 2 + var(--dplus-icon-avatar-chat));
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.theme-dark ::-webkit-scrollbar-track-piece,
+.theme-dark .theme-light ::-webkit-scrollbar-track-piece,
+.theme-light .theme-dark ::-webkit-scrollbar-track-piece {
+	background:  hsla(0,0%,0%,0.3)!important;
+}
+.theme-light ::-webkit-scrollbar-track-piece {
+	background:  hsla(0,0%,100%,0.3)!important;
+	border: none!important;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--dplus-accent-ui)!important;
+	border: none!important;
+	border-radius: var(--dplus-radius-ui);
+}
+::-webkit-scrollbar {
+	width: var(--dplus-scrollbar-width) !important;
+}
+.scroller-2TZvBN::-webkit-scrollbar, .scroller_fea3ef::-webkit-scrollbar {
+	width: 0!important;
+}
+::-webkit-scrollbar-track {
+	background: transparent!important;
+	border: none!important;
+}
+.info_c5a741:last-child::after {
+  content: "Dark Neon Rose Edition";
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(var(--rgb-highlight));
+}
